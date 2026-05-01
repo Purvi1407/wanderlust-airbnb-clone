@@ -1,0 +1,63 @@
+<% layout('/layout/boilerplate') -%>
+
+<div class="row">
+  <div class="col-8 offset-2">
+    <br><br>
+    <h1>Create a New Listing</h1>
+
+    <form action="/listings" method="POST"
+          class="needs-validation"
+          enctype="multipart/form-data" novalidate>
+
+      <div>
+        <label class="form-label">Title</label>
+        <input type="text" name="listing[title]" class="form-control" required>
+      </div><br>
+
+      <div>
+        <label class="form-label">Description</label>
+        <textarea name="listing[description]" class="form-control" required></textarea>
+      </div><br>
+
+      <div>
+        <label class="form-label">Image</label>
+        <input type="file" name="image" class="form-control" required>
+      </div><br>
+
+      <div class="row">
+        <div class="col-md-4">
+          <label class="form-label">Price</label>
+          <input type="number" name="listing[price]" class="form-control" required>
+        </div>
+
+        <div class="col-md-8">
+          <label class="form-label">Category</label>
+          <select name="listing[category]" class="form-control" required>
+            <option disabled selected>Select</option>
+            <option>Beach</option>
+            <option>Mountain</option>
+            <option>City</option>
+            <option>Historic</option>
+            <option>Treehouse</option>
+            <option>Cabin</option>
+            <option>Luxury</option>
+            <option>Ski</option>
+            <option>Safari</option>
+          </select>
+        </div>
+      </div><br>
+
+      <div>
+        <label class="form-label">Country</label>
+        <input type="text" name="listing[country]" class="form-control" required>
+      </div><br>
+
+      <div>
+        <label class="form-label">Location</label>
+        <input type="text" name="listing[location]" class="form-control" required>
+      </div><br>
+
+      <button class="btn btn-dark">Add</button>
+    </form>
+  </div>
+</div>
