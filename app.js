@@ -103,7 +103,7 @@ app.use("/", userRouter);
 
 
 app.get("/", (req, res) => {
-  res.send("WanderLust Server Running 🚀");
+  res.redirect("/listings");
 });
 
 
