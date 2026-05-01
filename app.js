@@ -25,6 +25,10 @@ const PORT = 8080;
 
 const dbUrl = process.env.ATLASDB_URL;
 
+if (!dbUrl) {
+  console.error("❌ ATLASDB_URL is missing in environment variables");
+}
+
 mongoose
   .connect(dbUrl)
   .then(() => console.log("Connected to DB"))
@@ -45,7 +49,7 @@ app.use(express.static(path.join(__dirname, "public")));
 const store = MongoStore.create({
   mongoUrl: dbUrl,
   crypto: {
-    secret: process.env.SECRET,
+    secret: process.env.SECRET || "defaultSecret",
   },
   touchAfter: 24 * 3600,
 });
@@ -113,8 +117,14 @@ app.use((req, res, next) => {
 
 
 app.use((err, req, res, next) => {
-  let { statusCode = 500, message = "Something went wrong" } = err;
-  res.status(statusCode).render("error.ejs", { err });
+  let statusCode = err.statusCode || 500;
+  let message = err.message || "Something went wrong";
+
+  console.error(err);
+
+  res.status(statusCode).render("error.ejs", {
+    err: { message }
+  });
 });
 
 
