@@ -38,7 +38,6 @@
 ---
 
 ## 📁 Project Structure
-
 wanderlust-airbnb-clone/
 ├── controllers/
 │   ├── listing.js
@@ -87,7 +86,6 @@ wanderlust-airbnb-clone/
 ├── middleware.js
 ├── package.json
 └── schema.js
-```
 
 
 ## 🚀 Run Locally
