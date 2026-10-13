@@ -35,7 +35,7 @@
 </style>
 <div id="filters">
    <div class="filter">
-     <a href="/listings/68e3d7f1aa9fd16a4cf5f0ff"><div><i class="fa-solid fa-fire"></i></div></a>
+     <a href="/listings/68e3d7f1aa9fd16a4cf5f0ff" aria-label="Trending"><div><i class="fa-solid fa-fire"></i></div></a>
      <p>Trending</p>
    </div>
    <div class="filter">
@@ -93,7 +93,7 @@
 <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3">
   <% for(let listing of allListings) { %>
      <div class="card col listing-card">
-       <a href="/listings/<%= listing._id %>" class="listing-link">
+       <a href="/listings/<%= listing._id %>" class="listing-link" aria-label="<%= listing.title %>">
        <img src="<%= listing.image.url%>" 
          class="card-img-top" 
          alt="listing_image"
